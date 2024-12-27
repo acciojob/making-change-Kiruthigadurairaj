@@ -1,30 +1,23 @@
 const makeChange = (c) => {
   // your name here
-	
-	c = parseInt(c);
+	const quarterValue = 25;
+    const dimeValue = 10;
+    const nickelValue = 5;
+    const pennyValue = 1;
 
-    const quarterValue = 25; 
-    const dimeValue = 10;    
-    const nickelValue = 5;   
-    const pennyValue = 1;    
+    let quarters = Math.floor(c / quarterValue);
+    c %= quarterValue;
 
-    const q = Math.floor(c / quarterValue); 
-    c %= quarterValue;                     
+    let dimes = Math.floor(c / dimeValue);
+    c %= dimeValue;
 
-    const d = Math.floor(c / dimeValue);   
-    c %= dimeValue;                        
+    let nickels = Math.floor(c / nickelValue);
+    c %= nickelValue;
 
-    const n = Math.floor(c / nickelValue); 
-    c %= nickelValue;                      
+    let pennies = c;
 
-    const p = c;                          
-    return { q, d, n, p };
+    return { "q": quarters, "d": dimes, "n": nickels, "p": pennies };
 };
-
-console.log(makeChange(47)); 
-console.log(makeChange(24));
-};
-
 // Do not the change the code below
 const c = prompt("Enter c: ");
 alert(JSON.stringify(makeChange(c)));
